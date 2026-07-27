@@ -351,17 +351,18 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // ⚠️ ВАЖНО: Вставьте сюда свои данные из Firebase Console (Settings -> General -> Your apps)
+    // Конфигурация Firebase
     const firebaseConfig = {
-      apiKey: "ВАШ_API_KEY",
-      authDomain: "ваш-проект.firebaseapp.com",
-      projectId: "ваш-проект",
-      storageBucket: "ваш-проект.appspot.com",
-      messagingSenderId: "123456789",
-      appId: "1:123456789:web:abcdef"
+      apiKey: "AIzaSyB58KNxUr-eFqUo21m1s0mWPK6csUfHtjQ",
+      authDomain: "pvz-levels-e0cba.firebaseapp.com",
+      projectId: "pvz-levels-e0cba",
+      storageBucket: "pvz-levels-e0cba.firebasestorage.app",
+      messagingSenderId: "857436577508",
+      appId: "1:857436577508:web:dcb1d86b5d5d3f2f7296f1",
+      measurementId: "G-EVRL7KX3WC"
     };
 
-    // Инициализация Firebase
+    // Инициализация Firebase и Firestore
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
   </script>
@@ -463,7 +464,7 @@
 
   <script>
     /* ==========================================
-       1. CANVAS С ЧАСТИЦАМИ (ОПТИМИЗИРОВАННЫЙ)
+       1. CANVAS С ЧАСТИЦАМИ
        ========================================== */
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d', { alpha: false });
@@ -530,14 +531,14 @@
     let isAdmin = false;
 
     function escapeHtml(str) {
-      return str.replace(/[&<>"']/g, match => {
+      return (str || '').replace(/[&<>"']/g, match => {
         const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
         return map[match];
       });
     }
 
     function escapeMarkdown(text) {
-      return text.replace(/[_*`\[\]]/g, '\\$&');
+      return (text || '').replace(/[_*`\[\]]/g, '\\$&');
     }
 
     function fileToDataURL(file) {
@@ -558,7 +559,6 @@
     function renderLevels() {
       const container = document.getElementById('levelsContainer');
 
-      // Подписываемся на обновляемую базу Firestore в реальном времени
       db.collection('levels').orderBy('position', 'asc').onSnapshot((snapshot) => {
         container.innerHTML = '';
 
@@ -615,7 +615,7 @@
     }
 
     /* ==========================================
-       4. БЕЗОПАСНАЯ ОТПРАВКА ЗАЯВКИ В TELEGRAM
+       4. ОТПРАВКА ЗАЯВКИ В TELEGRAM
        ========================================== */
     async function handleUserSubmit(e) {
       e.preventDefault();
@@ -651,7 +651,6 @@
         formData.append('caption', captionText);
         formData.append('parse_mode', 'Markdown');
 
-        // Отправка через сервер Vercel (без раскрытия токена)
         const response = await fetch('/api/submit', {
           method: 'POST',
           body: formData
