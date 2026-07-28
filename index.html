@@ -586,9 +586,6 @@
         await docRef.update({ likes: firebase.firestore.FieldValue.arrayUnion(uid) });
       }
     }
-    const docId = '123'; // или получаем из функции/параметра
-    const elem = document.getElementById(`comments-${docId}`);
-
     function toggleComments(docId) {
       const elem = document.getElementById(`comments-${docId}`);
       const isOpen = elem.classList.toggle('open');
