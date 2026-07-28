@@ -1045,7 +1045,27 @@
       </div>
     </div>
   </div>
-  position: pos,
+   <script>
+async function handleAdminAddLevel(e) {
+      e.preventDefault();
+      const file = document.getElementById('admFile').files[0];
+      const previewFile = document.getElementById('admPreviewFile').files[0];
+      if (!file) return;
+
+      const fileData = await fileToDataURL(file);
+      const previewData = previewFile ? await fileToDataURL(previewFile) : null;
+      const pos = parseInt(document.getElementById('admPos').value);
+
+      try {
+        await db.collection('levels').add({
+          title: document.getElementById('admTitle').value,
+          author: document.getElementById('admAuthor').value,
+          verifier: document.getElementById('admVerifier').value,
+          video: document.getElementById('admVideo').value,
+          fileData: fileData,
+          previewData: previewData,
+          fileName: file.name,
+          position: pos,
           likes: [],
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
@@ -1057,7 +1077,6 @@
         alert('Не удалось сохранить уровень.');
       }
     }
-
     async function moveLevel(docId, direction) {
       const currentIndex = loadedLevelsDocs.findIndex(d => d.id === docId);
       if (currentIndex === -1) return;
