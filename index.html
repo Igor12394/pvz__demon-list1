@@ -4,21 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PvZ Hard Levels Top / Custom Levels</title>
-  
-  <style>
   <style>
     :root {
-    :root {
-     --bg-color: #0d0e12;               
-     --card-bg: #16171e;              
-     --card-border: rgba(255, 255, 255, 0.15); 
-     --card-border-hover: rgba(255, 255, 255, 0.4);
-     --accent-white: #ffffff;
-     --text-main: #ffffff;              
-     --text-muted: #a0a0b5;           
-     --danger-color: #ff4757;
-     --success-color: #2ed573;
-     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --bg-color: #08080a;
+      --card-bg: rgba(18, 18, 22, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(255, 255, 255, 0.25);
+      --accent-white: #ffffff;
+      --text-main: #f0f0f5;
+      --text-muted: #8a8a9e;
+      --danger-color: #ff4757;
+      --success-color: #2ed573;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -65,7 +62,7 @@
     .admin-icon-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
-      color: var(--text-main); font-size: 1.1rem; padding: 8px 12px;
+      color: var(--text-main); font-size: 1.1rem; padding: 6px 10px;
       border-radius: 8px; cursor: pointer;
       transition: background 0.2s, border-color 0.2s, transform 0.2s;
       display: flex; align-items: center; justify-content: center;
@@ -80,12 +77,12 @@
     .user-profile-widget {
       display: flex; align-items: center; gap: 12px; padding: 6px 14px;
       border-radius: 24px; cursor: pointer;
-      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border);
       transition: background 0.2s, border-color 0.2s;
     }
 
     .user-profile-widget:hover {
-      background: rgba(255, 255, 255, 0.1); border-color: var(--card-border-hover);
+      background: rgba(255, 255, 255, 0.08); border-color: var(--card-border-hover);
     }
 
     .avatar-circle {
@@ -164,7 +161,7 @@
     .reorder-btns { display: flex; flex-direction: column; gap: 4px; margin-right: 8px; }
     .btn-arrow { padding: 2px 8px; font-size: 0.7rem; line-height: 1; }
 
-    /* КНОПКИ ЛАЙКОВ И КОММЕНТАРИЕВ БЕЗ ФОНА И РАМОК ВНИЗУ КАРТОЧКИ */
+    /* ПРОЗРАЧНЫЕ КНОПКИ ЛАЙКОВ И КОММЕНТАРИЕВ ВНИЗУ */
     .level-footer-social {
       display: flex; justify-content: flex-end; align-items: center;
       gap: 12px; padding: 4px 20px 12px 20px; margin-top: -4px;
@@ -249,207 +246,6 @@
       header { flex-direction: column; gap: 15px; align-items: flex-start; }
     }
   </style>
-
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-  <script>
-    // Твой Firebase проект
-    const firebaseConfig = {
-      apiKey: "AIzaSyB58KNxUr-eFqUo21m1s0mWPK6csUfHtjQ",
-      authDomain: "pvz-levels-e0cba.firebaseapp.com",
-      projectId: "pvz-levels-e0cba",
-      storageBucket: "pvz-levels-e0cba.firebasestorage.app",
-      messagingSenderId: "857436577508",
-      appId: "1:857436577508:web:dcb1d86b5d5d3f2f7296f1",
-      measurementId: "G-EVRL7KX3WC"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const auth = firebase.auth();
-  </script>
-</head>
-<body>
-  <canvas id="particles"></canvas>
-
-  <div class="app-container">
-    <header>
-      <div class="brand-title">PvZ Custom Levels</div>
-      <div class="header-right-zone">
-        <div class="header-actions-row">
-          <button class="btn" onclick="openSubmitModal()">Подать заявку</button>
-          <button class="btn" onclick="openVerifyModal()">Верификация уровня</button>
-          <button class="admin-icon-btn" onclick="openAdminModal()" title="Админ-панель">⚙️</button>
-        </div>
-        <div class="user-profile-widget" onclick="handleProfileClick()">
-          <div class="avatar-circle" id="userAvatar">👤</div>
-          <span class="user-nickname" id="userNickname">Войти</span>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <div class="levels-list" id="levelsContainer">
-        </div>
-    </main>
-  </div>
-  <div class="modal-overlay" id="authModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>Личный кабинет</h3>
-        <button class="close-btn" onclick="closeModal('authModal')">✕</button>
-      </div>
-
-      <div id="userInfoBlock" style="display: none; flex-direction: column;">
-        <div class="profile-stats">
-          <div style="font-size: 1.1rem; font-weight: 600;" id="profileNickDisplay">Игрок</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted);" id="profileEmailDisplay">email@example.com</div>
-          <div style="margin-top: 8px; font-size: 0.85rem;">
-            Опубликовано уровней: <b id="userLevelsCount">0</b>
-          </div>
-        </div>
-
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Выберите аватар:</div>
-        <div class="avatar-selector">
-          <div class="avatar-option" onclick="selectAvatar('🌻')">🌻</div>
-          <div class="avatar-option" onclick="selectAvatar('🌽')">🌽</div>
-          <div class="avatar-option" onclick="selectAvatar('🌶️')">🌶️</div>
-          <div class="avatar-option" onclick="selectAvatar('🧟')">🧟</div>
-        </div>
-
-        <button class="btn btn-danger" style="margin-top: 15px; width: 100%;" onclick="logoutUser()">Выйти из аккаунта</button>
-      </div>
-
-      <div id="authFormBlock">
-        <div class="auth-tabs">
-          <button class="auth-tab active" id="tabLogin" onclick="switchAuthMode('login')">Вход</button>
-          <button class="auth-tab" id="tabRegister" onclick="switchAuthMode('register')">Регистрация</button>
-        </div>
-        <form onsubmit="handleAuthSubmit(event)">
-          <div class="form-group" id="nickGroup" style="display: none;">
-            <label>Никнейм</label>
-            <input type="text" class="form-control" id="authNick" placeholder="Уникальный ник">
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" id="authEmail" required placeholder="your@email.com">
-          </div>
-          <div class="form-group">
-            <label>Пароль</label>
-            <input type="password" class="form-control" id="authPass" required placeholder="••••••••">
-          </div>
-          <div class="form-group" id="passConfirmGroup" style="display: none;">
-            <label>Подтвердите пароль</label>
-            <input type="password" class="form-control" id="authPassConfirm" placeholder="••••••••">
-          </div>
-          <div class="checkbox-group" id="termsGroup" style="display: none;">
-            <input type="checkbox" id="authTerms">
-            <label for="authTerms">Я принимаю условия использования и правила сообщества</label>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;" id="authSubmitBtn">Войти</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="submitModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>Подать уровень в ТОП</h3>
-        <button class="close-btn" onclick="closeModal('submitModal')">✕</button>
-      </div>
-      <form id="submissionForm" onsubmit="handleUserSubmit(event)">
-        <div class="form-group">
-          <label>Название уровня</label>
-          <input type="text" class="form-control" id="userTitle" required placeholder="Например: Hard Night 1-1">
-        </div>
-        <div class="form-group">
-          <label>Верификатор</label>
-          <input type="text" class="form-control" id="userVerifier" required placeholder="Кто прошел уровень">
-        </div>
-        <div class="form-group">
-          <label>Ссылка на видео прохождения</label>
-          <input type="url" class="form-control" id="userVideo" required placeholder="https://youtube.com/...">
-        </div>
-        <div class="form-group">
-          <label>Файл уровня (.βdiy)</label>
-          <input type="file" class="form-control" id="userFile" accept=".βdiy" required>
-        </div>
-        <div class="form-group">
-          <label>Превью (изображение, необязательно)</label>
-          <input type="file" class="form-control" id="userPreviewFile" accept="image/*">
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить на модерацию</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="verifyModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>Отправить на верификацию</h3>
-        <button class="close-btn" onclick="closeModal('verifyModal')">✕</button>
-      </div>
-      <form id="verifyForm" onsubmit="handleUserVerifySubmit(event)">
-        <div class="form-group">
-          <label>Название уровня</label>
-          <input type="text" class="form-control" id="verifyTitle" required placeholder="Название для видео">
-        </div>
-        <div class="form-group">
-          <label>Файл уровня (.βdiy)</label>
-          <input type="file" class="form-control" id="verifyFile" accept=".βdiy" required>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить на верификацию</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="adminModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>Панель администратора</h3>
-        <button class="close-btn" onclick="closeModal('adminModal')">✕</button>
-      </div>
-      
-      <div class="admin-section-title">Входящие заявки</div>
-      <div id="requestsContainer">Загрузка заявок...</div>
-
-      <div class="admin-section-title">Прямое добавление в ТОП</div>
-      <form id="adminAddForm" onsubmit="handleAdminAddLevel(event)">
-        <div class="form-group">
-          <label>Название</label>
-          <input type="text" class="form-control" id="admTitle" required>
-        </div>
-        <div class="form-group">
-          <label>Автор</label>
-          <input type="text" class="form-control" id="admAuthor" required>
-        </div>
-        <div class="form-group">
-          <label>Верификатор</label>
-          <input type="text" class="form-control" id="admVerifier" required>
-        </div>
-        <div class="form-group">
-          <label>Ссылка на видео</label>
-          <input type="url" class="form-control" id="admVideo" required>
-        </div>
-        <div class="form-group">
-          <label>Позиция в рейтинге</label>
-          <input type="number" class="form-control" id="admPos" value="1" min="1" required>
-        </div>
-        <div class="form-group">
-          <label>Файл (.βdiy)</label>
-          <input type="file" class="form-control" id="admFile" accept=".βdiy" required>
-        </div>
-        <div class="form-group">
-          <label>Превью (картинка)</label>
-          <input type="file" class="form-control" id="admPreviewFile" accept="image/*">
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Добавить напрямую</button>
-      </form>
-    </div>
-  </div>
-
   <script>
     /* 1. НАСТРОЙКИ И АНИМАЦИЯ ЧАСТИЦ */
     const VERIFICATION_CHANNEL_URL = "https://youtube.com/@YOUR_CHANNEL"; // Укажите ваш канал
