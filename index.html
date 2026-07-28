@@ -251,7 +251,20 @@
     const VERIFICATION_CHANNEL_URL = "https://youtube.com/@YOUR_CHANNEL"; // Укажите ваш канал
 
     const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d', { alpha: false });
+    document.addEventListener('DOMContentLoaded', () => {
+  // 1. Находим canvas по его ID (замените 'gameCanvas' на ваш ID из HTML)
+  const canvas = document.getElementById('gameCanvas');
+
+  // 2. Проверяем, нашелся ли он
+  if (!canvas) {
+    console.error('Ошибка: тег <canvas> не найден на странице!');
+    return;
+  }
+
+  // 3. Если всё ок — получаем контекст
+  const ctx = canvas.getContext('2d', { alpha: false });
+});
+
     let particlesArray = [];
     let lastTime = performance.now();
 
