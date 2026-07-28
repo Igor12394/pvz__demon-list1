@@ -6,6 +6,7 @@
   <title>PvZ Hard Levels Top / Custom Levels</title>
   
   <style>
+  <style>
     :root {
       --bg-color: #08080a;
       --card-bg: rgba(18, 18, 22, 0.85);
@@ -63,7 +64,7 @@
     .admin-icon-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
-      color: var(--text-main); font-size: 1.1rem; padding: 6px 10px;
+      color: var(--text-main); font-size: 1.1rem; padding: 8px 12px;
       border-radius: 8px; cursor: pointer;
       transition: background 0.2s, border-color 0.2s, transform 0.2s;
       display: flex; align-items: center; justify-content: center;
@@ -74,27 +75,28 @@
       background: rgba(255, 255, 255, 0.12); transform: scale(1.05);
     }
 
+    /* УВЕЛИЧЕННЫЙ ПРОФИЛЬ В ШАПКЕ */
     .user-profile-widget {
-      display: flex; align-items: center; gap: 10px; padding: 4px 10px;
-      border-radius: 20px; cursor: pointer;
-      background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border);
+      display: flex; align-items: center; gap: 12px; padding: 6px 14px;
+      border-radius: 24px; cursor: pointer;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border);
       transition: background 0.2s, border-color 0.2s;
     }
 
     .user-profile-widget:hover {
-      background: rgba(255, 255, 255, 0.08); border-color: var(--card-border-hover);
+      background: rgba(255, 255, 255, 0.1); border-color: var(--card-border-hover);
     }
 
     .avatar-circle {
-      width: 36px; height: 36px; border-radius: 50%; background: #1e1e24;
+      width: 44px; height: 44px; border-radius: 50%; background: #1e1e24;
       border: 1px solid var(--card-border-hover); display: flex;
-      align-items: center; justify-content: center; font-size: 1.2rem;
+      align-items: center; justify-content: center; font-size: 1.4rem;
       overflow: hidden; flex-shrink: 0; user-select: none;
     }
 
     .user-nickname {
-      font-size: 0.85rem; font-weight: 500; color: var(--text-main);
-      max-width: 120px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-size: 1rem; font-weight: 600; color: var(--text-main);
+      max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
     .btn {
@@ -116,15 +118,13 @@
     .btn-primary:hover { background: #e6e6e6; color: #000; }
     .btn-success { border-color: rgba(46, 213, 115, 0.3); color: var(--success-color); }
     .btn-danger { border-color: rgba(255, 71, 87, 0.3); color: var(--danger-color); }
-    .btn-like { border-color: rgba(255, 71, 87, 0.5); color: #ff4757; }
-    .btn-like.liked { background: rgba(255, 71, 87, 0.2); font-weight: bold; }
     .btn-icon { padding: 6px 10px; font-size: 0.8rem; }
 
     .levels-list { display: flex; flex-direction: column; gap: 16px; }
 
     .level-card-wrapper {
       background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 12px; overflow: hidden;
+      border-radius: 12px; overflow: hidden; position: relative;
       transition: border-color 0.25s, background-color 0.25s, transform 0.25s;
       animation: fadeIn 0.3s ease forwards;
     }
@@ -139,12 +139,13 @@
     }
 
     .level-card {
-      padding: 18px 20px; display: flex; align-items: center;
+      padding: 18px 20px 10px 20px; display: flex; align-items: center;
       justify-content: space-between; gap: 16px;
     }
 
+    /* УВЕЛИЧЕННОЕ ПРЕВЬЮ УРОВНЯ */
     .level-preview-img {
-      width: 70px; height: 50px; border-radius: 6px; object-fit: cover;
+      width: 110px; height: 80px; border-radius: 8px; object-fit: cover;
       border: 1px solid var(--card-border); pointer-events: none; user-select: none;
     }
 
@@ -155,12 +156,41 @@
 
     .level-rank.top-1 { color: #ffffff; text-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
     .level-details { flex: 1; }
-    .level-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; color: var(--text-main); }
-    .level-meta { font-size: 0.82rem; color: var(--text-muted); display: flex; gap: 14px; flex-wrap: wrap; }
+    .level-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; color: var(--text-main); }
+    .level-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; gap: 14px; flex-wrap: wrap; }
     .level-meta span b { color: var(--text-main); font-weight: 500; }
     .level-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .reorder-btns { display: flex; flex-direction: column; gap: 4px; margin-right: 8px; }
     .btn-arrow { padding: 2px 8px; font-size: 0.7rem; line-height: 1; }
+
+    /* КНОПКИ ЛАЙКОВ И КОММЕНТАРИЕВ БЕЗ ФОНА И РАМОК ВНИЗУ КАРТОЧКИ */
+    .level-footer-social {
+      display: flex; justify-content: flex-end; align-items: center;
+      gap: 12px; padding: 4px 20px 12px 20px; margin-top: -4px;
+    }
+
+    .btn-ghost-icon {
+      background: transparent !important;
+      border: none !important;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      padding: 4px 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s, transform 0.15s;
+    }
+
+    .btn-ghost-icon:hover {
+      color: var(--text-main);
+      transform: scale(1.1);
+    }
+
+    .btn-ghost-icon.liked {
+      color: #ff4757 !important;
+      font-weight: bold;
+    }
 
     /* Комментарии */
     .comments-section {
@@ -222,7 +252,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-
   <script>
     // Твой Firebase проект
     const firebaseConfig = {
