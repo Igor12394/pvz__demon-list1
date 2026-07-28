@@ -18,11 +18,7 @@
       --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg-color);
@@ -38,195 +34,96 @@
     }
 
     #particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-      transform: translateZ(0);
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1; pointer-events: none; transform: translateZ(0);
     }
 
-    .app-container {
-      width: 100%;
-      max-width: 860px;
-      padding: 40px 20px;
-      z-index: 1;
-    }
+    .app-container { width: 100%; max-width: 860px; padding: 40px 20px; z-index: 1; }
 
-    /* ШАПКА */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      padding: 16px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 40px; padding: 16px 20px;
       border-bottom: 1px solid var(--card-border);
       background: rgba(8, 8, 10, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-radius: 12px;
     }
 
     .brand-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 2px;
+      font-size: 1.2rem; font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase;
       background: linear-gradient(180deg, #ffffff 0%, #a1a1a1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    .header-right-zone {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .header-actions-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .header-right-zone { display: flex; align-items: center; gap: 16px; }
+    .header-actions-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
     .admin-icon-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
-      color: var(--text-main);
-      font-size: 1.1rem;
-      padding: 6px 10px;
-      border-radius: 8px;
-      cursor: pointer;
+      color: var(--text-main); font-size: 1.1rem; padding: 6px 10px;
+      border-radius: 8px; cursor: pointer;
       transition: background 0.2s, border-color 0.2s, transform 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
 
     .admin-icon-btn:hover {
       border-color: var(--card-border-hover);
-      background: rgba(255, 255, 255, 0.12);
-      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.12); transform: scale(1.05);
     }
 
-    /* Профиль в шапке */
     .user-profile-widget {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--card-border);
+      display: flex; align-items: center; gap: 10px; padding: 4px 10px;
+      border-radius: 20px; cursor: pointer;
+      background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border);
       transition: background 0.2s, border-color 0.2s;
     }
 
     .user-profile-widget:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--card-border-hover);
+      background: rgba(255, 255, 255, 0.08); border-color: var(--card-border-hover);
     }
 
     .avatar-circle {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #1e1e24;
-      border: 1px solid var(--card-border-hover);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      overflow: hidden;
-      flex-shrink: 0;
-      user-select: none;
-    }
-
-    .avatar-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 36px; height: 36px; border-radius: 50%; background: #1e1e24;
+      border: 1px solid var(--card-border-hover); display: flex;
+      align-items: center; justify-content: center; font-size: 1.2rem;
+      overflow: hidden; flex-shrink: 0; user-select: none;
     }
 
     .user-nickname {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-main);
-      max-width: 120px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 0.85rem; font-weight: 500; color: var(--text-main);
+      max-width: 120px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
     .btn {
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-main);
-      border: 1px solid var(--card-border);
-      padding: 8px 16px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      border-radius: 8px;
-      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05); color: var(--text-main);
+      border: 1px solid var(--card-border); padding: 8px 16px;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;
+      border-radius: 8px; cursor: pointer;
       transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      text-decoration: none; display: inline-flex; align-items: center;
+      justify-content: center; gap: 6px;
     }
 
     .btn:hover {
-      border-color: var(--card-border-hover);
-      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--card-border-hover); background: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
     }
 
-    .btn-primary {
-      background: var(--text-main);
-      color: #000;
-      font-weight: 600;
-      border: 1px solid #ffffff;
-    }
+    .btn-primary { background: var(--text-main); color: #000; font-weight: 600; border: 1px solid #ffffff; }
+    .btn-primary:hover { background: #e6e6e6; color: #000; }
+    .btn-success { border-color: rgba(46, 213, 115, 0.3); color: var(--success-color); }
+    .btn-danger { border-color: rgba(255, 71, 87, 0.3); color: var(--danger-color); }
+    .btn-like { border-color: rgba(255, 71, 87, 0.5); color: #ff4757; }
+    .btn-like.liked { background: rgba(255, 71, 87, 0.2); font-weight: bold; }
+    .btn-icon { padding: 6px 10px; font-size: 0.8rem; }
 
-    .btn-primary:hover {
-      background: #e6e6e6;
-      color: #000;
-    }
+    .levels-list { display: flex; flex-direction: column; gap: 16px; }
 
-    .btn-success {
-      border-color: rgba(46, 213, 115, 0.3);
-      color: var(--success-color);
-    }
-
-    .btn-danger {
-      border-color: rgba(255, 71, 87, 0.3);
-      color: var(--danger-color);
-    }
-
-    .btn-icon {
-      padding: 6px 10px;
-      font-size: 0.8rem;
-    }
-
-    /* Карточка уровня */
-    .levels-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .level-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+    .level-card-wrapper {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 12px; overflow: hidden;
       transition: border-color 0.25s, background-color 0.25s, transform 0.25s;
       animation: fadeIn 0.3s ease forwards;
     }
@@ -236,277 +133,88 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .level-card:hover {
-      border-color: var(--card-border-hover);
-      background: rgba(26, 26, 32, 0.95);
-      transform: translateY(-2px);
+    .level-card-wrapper:hover {
+      border-color: var(--card-border-hover); background: rgba(26, 26, 32, 0.95);
+    }
+
+    .level-card {
+      padding: 18px 20px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
     }
 
     .level-preview-img {
-      width: 70px;
-      height: 50px;
-      border-radius: 6px;
-      object-fit: cover;
-      border: 1px solid var(--card-border);
-      pointer-events: none; /* Запрет скачивания кликом */
-      user-select: none;
+      width: 70px; height: 50px; border-radius: 6px; object-fit: cover;
+      border: 1px solid var(--card-border); pointer-events: none; user-select: none;
     }
 
     .level-rank {
-      font-size: 1.6rem;
-      font-weight: 800;
-      min-width: 45px;
-      color: var(--text-muted);
-      font-variant-numeric: tabular-nums;
+      font-size: 1.6rem; font-weight: 800; min-width: 45px;
+      color: var(--text-muted); font-variant-numeric: tabular-nums;
     }
 
-    .level-rank.top-1 {
-      color: #ffffff;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    .level-rank.top-1 { color: #ffffff; text-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
+    .level-details { flex: 1; }
+    .level-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; color: var(--text-main); }
+    .level-meta { font-size: 0.82rem; color: var(--text-muted); display: flex; gap: 14px; flex-wrap: wrap; }
+    .level-meta span b { color: var(--text-main); font-weight: 500; }
+    .level-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .reorder-btns { display: flex; flex-direction: column; gap: 4px; margin-right: 8px; }
+    .btn-arrow { padding: 2px 8px; font-size: 0.7rem; line-height: 1; }
+
+    /* Комментарии */
+    .comments-section {
+      border-top: 1px solid var(--card-border);
+      background: rgba(0, 0, 0, 0.2); padding: 15px 20px; display: none;
     }
 
-    .level-details {
-      flex: 1;
-    }
-
-    .level-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: var(--text-main);
-      letter-spacing: 0.3px;
-    }
-
-    .level-meta {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .level-meta span b {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .level-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .reorder-btns {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-right: 8px;
-    }
-
-    .btn-arrow {
-      padding: 2px 8px;
-      font-size: 0.7rem;
-      line-height: 1;
-    }
+    .comments-section.open { display: block; }
+    .comments-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; max-height: 200px; overflow-y: auto; }
+    .comment-item { font-size: 0.85rem; background: rgba(255, 255, 255, 0.03); padding: 8px 12px; border-radius: 6px; }
+    .comment-author { font-weight: 600; color: #fff; margin-bottom: 2px; }
+    .comment-text { color: var(--text-main); word-break: break-word; }
+    .comment-form { display: flex; gap: 8px; }
 
     /* Модальные окна */
     .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8); z-index: 100; display: flex;
+      align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
     .modal-card {
-      background: #121216;
-      border: 1px solid var(--card-border-hover);
-      border-radius: 16px;
-      width: 100%;
-      max-width: 500px;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-      transform: scale(0.96);
-      transition: transform 0.25s ease;
-      max-height: 90vh;
-      overflow-y: auto;
+      background: #121216; border: 1px solid var(--card-border-hover);
+      border-radius: 16px; width: 100%; max-width: 500px; padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); transform: scale(0.96);
+      transition: transform 0.25s ease; max-height: 90vh; overflow-y: auto;
     }
 
-    .modal-overlay.active .modal-card {
-      transform: scale(1);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    .modal-header h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .close-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.4rem;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .close-btn:hover {
-      color: var(--text-main);
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .form-control {
-      width: 100%;
-      background: #09090c;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 10px 12px;
-      color: var(--text-main);
-      font-size: 0.9rem;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-control:focus {
-      border-color: var(--accent-white);
-    }
-
-    .auth-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--card-border);
-      padding-bottom: 10px;
-    }
-
-    .auth-tab {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      cursor: pointer;
-      font-weight: 600;
-      padding-bottom: 4px;
-    }
-
-    .auth-tab.active {
-      color: var(--text-main);
-      border-bottom: 2px solid var(--text-main);
-    }
-
-    /* Селектор аватарок */
-    .avatar-selector {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin: 15px 0;
-    }
-
-    .avatar-option {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #1e1e24;
-      border: 2px solid var(--card-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: border-color 0.2s, transform 0.2s;
-      user-select: none;
-    }
-
-    .avatar-option:hover {
-      transform: scale(1.1);
-      border-color: var(--card-border-hover);
-    }
-
-    .avatar-option.selected {
-      border-color: #ffffff;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-    }
-
-    .profile-stats {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 12px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .admin-section-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 20px 0 12px 0;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--card-border);
-      color: var(--text-main);
-    }
-
-    .request-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin-bottom: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .modal-overlay.active .modal-card { transform: scale(1); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--card-border); }
+    .modal-header h3 { font-size: 1.2rem; font-weight: 600; }
+    .close-btn { background: transparent; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; }
+    .close-btn:hover { color: var(--text-main); }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; }
+    .form-control { width: 100%; background: #09090c; border: 1px solid var(--card-border); border-radius: 8px; padding: 10px 12px; color: var(--text-main); font-size: 0.9rem; outline: none; }
+    .form-control:focus { border-color: var(--accent-white); }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px; }
+    .checkbox-group input { margin-top: 3px; }
+    .auth-tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 10px; }
+    .auth-tab { background: none; border: none; color: var(--text-muted); font-size: 0.9rem; cursor: pointer; font-weight: 600; }
+    .auth-tab.active { color: var(--text-main); border-bottom: 2px solid var(--text-main); }
+    .avatar-selector { display: flex; gap: 12px; justify-content: center; margin: 15px 0; }
+    .avatar-option { width: 48px; height: 48px; border-radius: 50%; background: #1e1e24; border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; }
+    .avatar-option.selected { border-color: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
+    .profile-stats { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 20px; }
+    .admin-section-title { font-size: 1rem; font-weight: 600; margin: 20px 0 12px 0; padding-bottom: 6px; border-bottom: 1px solid var(--card-border); }
+    .request-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px; }
 
     @media (max-width: 640px) {
-      .level-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .level-actions {
-        width: 100%;
-        justify-content: flex-end;
-        margin-top: 10px;
-      }
-      header {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-      }
+      .level-card { flex-direction: column; align-items: flex-start; }
+      .level-actions { width: 100%; justify-content: flex-end; margin-top: 10px; }
+      header { flex-direction: column; gap: 15px; align-items: flex-start; }
     }
   </style>
 
@@ -530,174 +238,10 @@
     const auth = firebase.auth();
   </script>
 </head>
-<body>
+<script>
+    /* 1. НАСТРОЙКИ И АНИМАЦИЯ ЧАСТИЦ */
+    const VERIFICATION_CHANNEL_URL = "https://youtube.com/@YOUR_CHANNEL"; // <-- УКАЖИТЕ ССЫЛКУ НА ВАШ КАНАЛ
 
-  <canvas id="particles"></canvas>
-
-  <div class="app-container">
-    <header>
-      <div class="brand-title">PvZ Hard Levels Top</div>
-
-      <div class="header-right-zone">
-        <div class="header-actions-row">
-          <button class="btn" onclick="openModal('submitModal')">Подать заявку</button>
-          <button class="admin-icon-btn" title="Админ панель" onclick="openAdminModal()">⚙️</button>
-        </div>
-
-        <div class="user-profile-widget" onclick="handleProfileClick()">
-          <div class="avatar-circle" id="userAvatar">👤</div>
-          <div class="user-nickname" id="userNickname">Войти</div>
-        </div>
-      </div>
-    </header>
-
-    <main class="levels-list" id="levelsContainer"></main>
-  </div>
-
-  <div class="modal-overlay" id="submitModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>Подача заявки уровня</h3>
-        <button class="close-btn" onclick="closeModal('submitModal')">&times;</button>
-      </div>
-      <form id="submissionForm" onsubmit="handleUserSubmit(event)">
-        <div class="form-group">
-          <label>Название уровня</label>
-          <input type="text" class="form-control" id="userTitle" placeholder="Например: Dark Matter Roof" required>
-        </div>
-        <div class="form-group">
-          <label>Автор уровня</label>
-          <input type="text" class="form-control" id="userAuthor" placeholder="Ваш никнейм" required>
-        </div>
-        <div class="form-group">
-          <label>Ник верификатора</label>
-          <input type="text" class="form-control" id="userVerifier" placeholder="Кто прошёл уровень" required>
-        </div>
-        <div class="form-group">
-          <label>Ссылка на видео (YouTube / Bilibili)</label>
-          <input type="url" class="form-control" id="userVideo" placeholder="https://..." required>
-        </div>
-        <div class="form-group">
-          <label>Превью картинка (по желанию)</label>
-          <input type="file" class="form-control" id="userPreviewFile" accept="image/*">
-        </div>
-        <div class="form-group">
-          <label>Файл уровня (.βdiy)</label>
-          <input type="file" class="form-control" id="userFile" accept=".βdiy" required>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Отправить заявку</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="authModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="authModalTitle">Аккаунт</h3>
-        <button class="close-btn" onclick="closeModal('authModal')">&times;</button>
-      </div>
-
-      <div id="authFormBlock">
-        <div class="auth-tabs">
-          <button class="auth-tab active" id="tabLogin" onclick="switchAuthMode('login')">Вход</button>
-          <button class="auth-tab" id="tabRegister" onclick="switchAuthMode('register')">Регистрация</button>
-        </div>
-
-        <form id="authForm" onsubmit="handleAuthSubmit(event)">
-          <div class="form-group" id="nickGroup" style="display: none;">
-            <label>Никнейм</label>
-            <input type="text" class="form-control" id="authNick" placeholder="Придумайте ник">
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" id="authEmail" placeholder="example@mail.com" required>
-          </div>
-          <div class="form-group">
-            <label>Пароль</label>
-            <input type="password" class="form-control" id="authPass" placeholder="••••••••" required>
-          </div>
-          <div class="form-group" id="passConfirmGroup" style="display: none;">
-            <label>Повторите пароль</label>
-            <input type="password" class="form-control" id="authPassConfirm" placeholder="••••••••">
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;" id="authSubmitBtn">Войти</button>
-        </form>
-      </div>
-
-      <div id="userInfoBlock" style="display: none; flex-direction: column;">
-        <div style="text-align: center; margin-bottom: 10px;">
-          <h2 id="profileNickDisplay" style="font-size: 1.3rem;">Ваш Ник</h2>
-          <span style="font-size: 0.8rem; color: var(--text-muted);" id="profileEmailDisplay"></span>
-        </div>
-
-        <label style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; text-align: center; display: block;">Выберите аватарку:</label>
-        <div class="avatar-selector">
-          <div class="avatar-option" onclick="selectAvatar('🌻')">🌻</div>
-          <div class="avatar-option" onclick="selectAvatar('🧟')">🧟</div>
-          <div class="avatar-option" onclick="selectAvatar('🧪')">🧪</div>
-          <div class="avatar-option" onclick="selectAvatar('🌶️')">🌶️</div>
-          <div class="avatar-option" onclick="selectAvatar('👑')">👑</div>
-        </div>
-
-        <div class="profile-stats">
-          <div style="font-size: 1.4rem; font-weight: bold;" id="userLevelsCount">0</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted);">Опубликовано уровней</div>
-        </div>
-
-        <button class="btn btn-danger" style="width: 100%;" onclick="logoutUser()">Выйти из аккаунта</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="adminModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="adminModalTitle">Панель управления</h3>
-        <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
-      </div>
-
-      <div id="adminContentBlock">
-        <div class="admin-section-title">📥 Входящие заявки</div>
-        <div id="requestsContainer">Загрузка заявок...</div>
-
-        <div class="admin-section-title">➕ Добавить уровень вручную</div>
-        <form id="adminAddForm" onsubmit="handleAdminAddLevel(event)">
-          <div class="form-group">
-            <label>Позиция в топе (#)</label>
-            <input type="number" class="form-control" id="admPos" min="1" value="1" required>
-          </div>
-          <div class="form-group">
-            <label>Название уровня</label>
-            <input type="text" class="form-control" id="admTitle" required>
-          </div>
-          <div class="form-group">
-            <label>Автор</label>
-            <input type="text" class="form-control" id="admAuthor" required>
-          </div>
-          <div class="form-group">
-            <label>Верификатор</label>
-            <input type="text" class="form-control" id="admVerifier" required>
-          </div>
-          <div class="form-group">
-            <label>Ссылка на видео</label>
-            <input type="url" class="form-control" id="admVideo" required>
-          </div>
-          <div class="form-group">
-            <label>Превью картинка (необязательно)</label>
-            <input type="file" class="form-control" id="admPreviewFile" accept="image/*">
-          </div>
-          <div class="form-group">
-            <label>Файл уровня (.βdiy)</label>
-            <input type="file" class="form-control" id="admFile" accept=".βdiy" required>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Опубликовать в топ</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    /* 1. CANVAS ЧАСТИЦЫ */
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d', { alpha: false });
     let particlesArray = [];
@@ -741,10 +285,8 @@
     function animateParticles(now) {
       const dt = (now - lastTime) / 1000;
       lastTime = now;
-
       ctx.fillStyle = '#08080a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update(dt);
         particlesArray[i].draw();
@@ -756,12 +298,8 @@
     resizeCanvas();
     requestAnimationFrame(animateParticles);
 
-    /* 2. СОСТОЯНИЕ И ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ */
-    const ADMIN_UIDS = [
-      "СКОПИРОВАННЫЙ_UID_1",
-      "СКОПИРОВАННЫЙ_UID_2"
-    ];
-
+    /* 2. СОСТОЯНИЕ И МОДАЛКИ */
+    const ADMIN_UIDS = ["СКОПИРОВАННЫЙ_UID_1", "СКОПИРОВАННЫЙ_UID_2"];
     let isAdmin = false;
     let authMode = 'login';
     let loadedLevelsDocs = [];
@@ -786,7 +324,25 @@
     function openModal(id) { document.getElementById(id).classList.add('active'); }
     function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-    /* 3. АВТОРИЗАЦИЯ И ПРОФИЛЬ */
+    function openSubmitModal() {
+      if (!auth.currentUser) {
+        alert('Для подачи заявки необходимо войти в аккаунт!');
+        openModal('authModal');
+        return;
+      }
+      openModal('submitModal');
+    }
+
+    function openVerifyModal() {
+      if (!auth.currentUser) {
+        alert('Для отправки уровня на верификацию необходимо войти в аккаунт!');
+        openModal('authModal');
+        return;
+      }
+      openModal('verifyModal');
+    }
+
+    /* 3. АВТОРИЗАЦИЯ И УНИКАЛЬНОСТЬ НИКНЕЙМОВ */
     auth.onAuthStateChanged(async (user) => {
       const nickElem = document.getElementById('userNickname');
       const avatarElem = document.getElementById('userAvatar');
@@ -795,7 +351,6 @@
         const nick = user.displayName || 'Игрок';
         nickElem.innerText = nick;
 
-        // Загрузка аватарки из Firestore профиля
         const userDoc = await db.collection('users').doc(user.uid).get();
         if (userDoc.exists && userDoc.data().avatar) {
           currentSelectedAvatar = userDoc.data().avatar;
@@ -824,18 +379,74 @@
       renderLevels();
     });
 
+    async function isNicknameTaken(nickname) {
+      const snapshot = await db.collection('users').where('nickname_lower', '==', nickname.toLowerCase()).get();
+      return !snapshot.empty;
+    }
+
+    function switchAuthMode(mode) {
+      authMode = mode;
+      document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
+      document.getElementById('tabRegister').classList.toggle('active', mode === 'register');
+      
+      document.getElementById('nickGroup').style.display = mode === 'register' ? 'block' : 'none';
+      document.getElementById('passConfirmGroup').style.display = mode === 'register' ? 'block' : 'none';
+      document.getElementById('termsGroup').style.display = mode === 'register' ? 'flex' : 'none';
+      document.getElementById('authSubmitBtn').innerText = mode === 'register' ? 'Зарегистрироваться' : 'Войти';
+    }
+
+    async function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('authEmail').value;
+      const pass = document.getElementById('authPass').value;
+
+      try {
+        if (authMode === 'register') {
+          const nick = document.getElementById('authNick').value.trim();
+          const passConfirm = document.getElementById('authPassConfirm').value;
+          const termsAccepted = document.getElementById('authTerms').checked;
+
+          if (!nick) { alert('Пожалуйста, введите никнейм!'); return; }
+          if (pass !== passConfirm) { alert('Пароли не совпадают!'); return; }
+          if (!termsAccepted) { alert('Вам необходимо принять условия правил!'); return; }
+
+          const taken = await isNicknameTaken(nick);
+          if (taken) {
+            alert('Этот никнейм уже занят другим игроком! Попробуйте другой.');
+            return;
+          }
+
+          const res = await auth.createUserWithEmailAndPassword(email, pass);
+          await res.user.updateProfile({ displayName: nick });
+          
+          await db.collection('users').doc(res.user.uid).set({
+            nickname: nick,
+            nickname_lower: nick.toLowerCase(),
+            avatar: '🌻',
+            termsAccepted: true
+          });
+
+          alert('Регистрация прошла успешно!');
+        } else {
+          await auth.signInWithEmailAndPassword(email, pass);
+        }
+        closeModal('authModal');
+      } catch (err) {
+        alert('Ошибка: ' + err.message);
+      }
+    }
+
     async function selectAvatar(avatarEmoji) {
       const user = auth.currentUser;
       if (!user) return;
-
       currentSelectedAvatar = avatarEmoji;
       document.getElementById('userAvatar').innerText = avatarEmoji;
       highlightSelectedAvatar(avatarEmoji);
 
-      // Сохраняем в Firebase
       await db.collection('users').doc(user.uid).set({
         avatar: avatarEmoji,
-        nickname: user.displayName || ''
+        nickname: user.displayName || '',
+        nickname_lower: (user.displayName || '').toLowerCase()
       }, { merge: true });
     }
 
@@ -849,79 +460,15 @@
       const snapshot = await db.collection('levels').get();
       let count = 0;
       snapshot.docs.forEach(doc => {
-        if (doc.data().author && doc.data().author.toLowerCase() === userNick.toLowerCase()) {
-          count++;
-        }
+        if (doc.data().author && doc.data().author.toLowerCase() === userNick.toLowerCase()) count++;
       });
       document.getElementById('userLevelsCount').innerText = count;
     }
 
-    function handleProfileClick() {
-      openModal('authModal');
-    }
+    function handleProfileClick() { openModal('authModal'); }
+    function logoutUser() { auth.signOut(); closeModal('authModal'); }
 
-    function switchAuthMode(mode) {
-      authMode = mode;
-      document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
-      document.getElementById('tabRegister').classList.toggle('active', mode === 'register');
-      
-      document.getElementById('nickGroup').style.display = mode === 'register' ? 'block' : 'none';
-      document.getElementById('passConfirmGroup').style.display = mode === 'register' ? 'block' : 'none';
-      document.getElementById('authSubmitBtn').innerText = mode === 'register' ? 'Зарегистрироваться' : 'Войти';
-    }
-
-    async function handleAuthSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('authEmail').value;
-      const pass = document.getElementById('authPass').value;
-      const passConfirm = document.getElementById('authPassConfirm').value;
-      const nick = document.getElementById('authNick').value.trim();
-
-      try {
-        if (authMode === 'register') {
-          if (!nick) {
-            alert('Пожалуйста, введите Ваш никнейм!');
-            return;
-          }
-          if (pass !== passConfirm) {
-            alert('Пароли не совпадают!');
-            return;
-          }
-
-          const res = await auth.createUserWithEmailAndPassword(email, pass);
-          await res.user.updateProfile({ displayName: nick });
-          
-          // Создаем профиль в базе
-          await db.collection('users').doc(res.user.uid).set({
-            nickname: nick,
-            avatar: '🌻'
-          });
-
-          alert('Регистрация прошла успешно!');
-        } else {
-          await auth.signInWithEmailAndPassword(email, pass);
-        }
-        closeModal('authModal');
-      } catch (err) {
-        alert('Ошибка авторизации: ' + err.message);
-      }
-    }
-
-    function logoutUser() {
-      auth.signOut();
-      closeModal('authModal');
-    }
-
-    function openAdminModal() {
-      if (!isAdmin) {
-        alert('У вас нет прав администратора!');
-        return;
-      }
-      openModal('adminModal');
-      renderRequests();
-    }
-
-    /* 4. ОТОБРАЖЕНИЕ И СОРТИРОВКА УРОВНЕЙ */
+    /* 4. ОТОБРАЖЕНИЕ УРОВНЕЙ, ЛАЙКИ И КОММЕНТАРИИ */
     function renderLevels() {
       const container = document.getElementById('levelsContainer');
 
@@ -937,40 +484,331 @@
         snapshot.docs.forEach((doc, index) => {
           const lvl = doc.data();
           const docId = doc.id;
-          const card = document.createElement('div');
-          card.className = 'level-card';
+          const user = auth.currentUser;
+          const likesCount = (lvl.likes || []).length;
+          const isLiked = user && (lvl.likes || []).includes(user.uid);
 
-          const previewHtml = lvl.previewData ? `<img src="${lvl.previewData}" class="level-preview-img" oncontextmenu="return false;" dragstart="return false;" alt="Preview">` : '';
+          const wrapper = document.createElement('div');
+          wrapper.className = 'level-card-wrapper';
 
-          card.innerHTML = `
-            <div style="display: flex; align-items: center;">
-              ${isAdmin ? `
-                <div class="reorder-btns">
-                  <button class="btn btn-arrow" onclick="moveLevel('${docId}', -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
-                  <button class="btn btn-arrow" onclick="moveLevel('${docId}', 1)" ${index === snapshot.docs.length - 1 ? 'disabled' : ''}>▼</button>
+          const previewHtml = lvl.previewData ? `<img src="${lvl.previewData}" class="level-preview-img" alt="Preview">` : '';
+
+          wrapper.innerHTML = `
+            <div class="level-card">
+              <div style="display: flex; align-items: center;">
+                ${isAdmin ? `
+                  <div class="reorder-btns">
+                    <button class="btn btn-arrow" onclick="moveLevel('${docId}', -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
+                    <button class="btn btn-arrow" onclick="moveLevel('${docId}', 1)" ${index === snapshot.docs.length - 1 ? 'disabled' : ''}>▼</button>
+                  </div>
+                ` : ''}
+                <div class="level-rank ${index === 0 ? 'top-1' : ''}">#${index + 1}</div>
+              </div>
+              ${previewHtml}
+              <div class="level-details">
+                <div class="level-title">${escapeHtml(lvl.title)}</div>
+                <div class="level-meta">
+                  <span>Автор: <b>${escapeHtml(lvl.author)}</b></span>
+                  <span>Верификатор: <b>${escapeHtml(lvl.verifier)}</b></span>
                 </div>
-              ` : ''}
-              <div class="level-rank ${index === 0 ? 'top-1' : ''}">#${index + 1}</div>
-            </div>
-            ${previewHtml}
-            <div class="level-details">
-              <div class="level-title">${escapeHtml(lvl.title)}</div>
-              <div class="level-meta">
-                <span>Автор: <b>${escapeHtml(lvl.author)}</b></span>
-                <span>Верификатор: <b>${escapeHtml(lvl.verifier)}</b></span>
+              </div>
+              <div class="level-actions">
+                <button class="btn btn-like ${isLiked ? 'liked' : ''}" onclick="toggleLike('${docId}')">❤️ ${likesCount}</button>
+                <a href="${escapeHtml(lvl.video)}" target="_blank" rel="noopener" class="btn btn-icon">▶ Видео</a>
+                <button class="btn btn-primary btn-icon" onclick="downloadBdiyFile('${docId}')">Скачать .βdiy</button>
+                <button class="btn btn-icon" onclick="toggleComments('${docId}')">💬 Комменты</button>
+                ${isAdmin ? `<button class="btn btn-danger btn-icon" onclick="deleteLevel('${docId}')">✕</button>` : ''}
               </div>
             </div>
-            <div class="level-actions">
-              <a href="${escapeHtml(lvl.video)}" target="_blank" rel="noopener" class="btn btn-icon">▶ Видео</a>
-              <button class="btn btn-primary btn-icon" onclick="downloadBdiyFile('${docId}')">Скачать .βdiy</button>
-              ${isAdmin ? `
-                <button class="btn btn-danger btn-icon" onclick="deleteLevel('${docId}')">✕</button>
-              ` : ''}
+
+            <div class="comments-section" id="comments-${docId}">
+              <div class="comments-list" id="comments-list-${docId}">Загрузка комментариев...</div>
+              <form class="comment-form" onsubmit="handleAddComment(event, '${docId}')">
+                <input type="text" class="form-control" placeholder="Написать комментарий..." id="comment-input-${docId}" required>
+                <button type="submit" class="btn btn-primary btn-icon">Отправить</button>
+              </form>
+            </div>
+          `;
+          container.appendChild(wrapper);
+        });
+      });
+    }
+
+    async function toggleLike(levelId) {
+      const user = auth.currentUser;
+      if (!user) {
+        alert('Пожалуйста, войдите в аккаунт, чтобы ставить лайки!');
+        openModal('authModal');
+        return;
+      }
+
+      const levelRef = db.collection('levels').doc(levelId);
+      const doc = await levelRef.get();
+      if (!doc.exists) return;
+
+      const likes = doc.data().likes || [];
+      if (likes.includes(user.uid)) {
+        await levelRef.update({ likes: firebase.firestore.FieldValue.arrayRemove(user.uid) });
+      } else {
+        await levelRef.update({ likes: firebase.firestore.FieldValue.arrayUnion(user.uid) });
+      }
+    }
+
+    function toggleComments(levelId) {
+      const sec = document.getElementById(`comments-${levelId}`);
+      sec.classList.toggle('open');
+      if (sec.classList.contains('open')) {
+        loadComments(levelId);
+      }
+    }
+
+    function loadComments(levelId) {
+      const list = document.getElementById(`comments-list-${levelId}`);
+      db.collection('levels').doc(levelId).collection('comments').orderBy('createdAt', 'asc').onSnapshot((snapshot) => {
+        list.innerHTML = '';
+        if (snapshot.empty) {
+          list.innerHTML = `<div style="color: var(--text-muted); font-size: 0.8rem;">Пока нет комментариев. Будьте первым!</div>`;
+          return;
+        }
+        snapshot.docs.forEach(doc => {
+          const c = doc.data();
+          const item = document.createElement('div');
+          item.className = 'comment-item';
+          item.innerHTML = `
+            <div class="comment-author">${escapeHtml(c.author)}</div>
+            <div class="comment-text">${escapeHtml(c.text)}</div>
+          `;
+          list.appendChild(item);
+        });
+      });
+    }
+
+    async function handleAddComment(e, levelId) {
+      e.preventDefault();
+      const user = auth.currentUser;
+      if (!user) {
+        alert('Пожалуйста, войдите в аккаунт, чтобы оставлять комментарии!');
+        openModal('authModal');
+        return;
+      }
+
+      const input = document.getElementById(`comment-input-${levelId}`);
+      const text = input.value.trim();
+      if (!text) return;
+
+      await db.collection('levels').doc(levelId).collection('comments').add({
+        author: user.displayName || 'Аноним',
+        text: text,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      input.value = '';
+    }
+
+    /* 5. ПОДАЧА ЗАЯВОК И ВЕРИФИКАЦИЯ */
+    async function handleUserSubmit(e) {
+      e.preventDefault();
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerText;
+
+      const title = document.getElementById('userTitle').value;
+      const verifier = document.getElementById('userVerifier').value;
+      const video = document.getElementById('userVideo').value;
+      const file = document.getElementById('userFile').files[0];
+      const previewFile = document.getElementById('userPreviewFile').files[0];
+
+      if (file && !file.name.endsWith('.βdiy')) {
+        alert('Файл должен быть с расширением .βdiy');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Сохранение...';
+
+      try {
+        const fileData = await fileToDataURL(file);
+        let previewData = previewFile ? await fileToDataURL(previewFile) : null;
+
+        await db.collection('requests').add({
+          title,
+          author: user.displayName, // Автоматический ник!
+          verifier,
+          video,
+          fileData,
+          previewData,
+          fileName: file.name,
+          type: 'full',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        alert('Заявка успешно отправлена!');
+        document.getElementById('submissionForm').reset();
+        closeModal('submitModal');
+      } catch (error) {
+        alert('Ошибка отправки: ' + error.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalBtnText;
+      }
+    }
+
+    async function handleUserVerifySubmit(e) {
+      e.preventDefault();
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerText;
+
+      const title = document.getElementById('verifyTitle').value;
+      const file = document.getElementById('verifyFile').files[0];
+
+      if (file && !file.name.endsWith('.βdiy')) {
+        alert('Файл должен быть с расширением .βdiy');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Отправка...';
+
+      try {
+        const fileData = await fileToDataURL(file);
+
+        await db.collection('requests').add({
+          title,
+          author: user.displayName, // Автоматический ник!
+          verifier: 'На верификации',
+          video: '#',
+          fileData,
+          previewData: null,
+          fileName: file.name,
+          type: 'verify_only',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        alert(`Заявка принята! Видео с верификацией этого уровня скоро появится на канале:\n${VERIFICATION_CHANNEL_URL}`);
+        document.getElementById('verifyForm').reset();
+        closeModal('verifyModal');
+      } catch (error) {
+        alert('Ошибка отправки: ' + error.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalBtnText;
+      }
+    }
+
+    /* 6. АДМИН-ПАНЕЛЬ И ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ */
+    function openAdminModal() {
+      if (!isAdmin) {
+        alert('У вас нет прав администратора!');
+        return;
+      }
+      openModal('adminModal');
+      renderRequests();
+    }
+
+    function renderRequests() {
+      const container = document.getElementById('requestsContainer');
+
+      db.collection('requests').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
+        container.innerHTML = '';
+        if (snapshot.empty) {
+          container.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem;">Новых заявок пока нет.</div>`;
+          return;
+        }
+
+        snapshot.docs.forEach((doc) => {
+          const req = doc.data();
+          const docId = doc.id;
+          const isVerify = req.type === 'verify_only';
+
+          const card = document.createElement('div');
+          card.className = 'request-card';
+          card.innerHTML = `
+            <div style="font-weight: 600; color: #fff;">${escapeHtml(req.title)} ${isVerify ? '<span style="color:#2ed573;">[На верификацию]</span>' : ''}</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">
+              Автор: <b>${escapeHtml(req.author)}</b> ${!isVerify ? `| Верификатор: <b>${escapeHtml(req.verifier)}</b>` : ''}
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap;">
+              ${!isVerify ? `<a href="${escapeHtml(req.video)}" target="_blank" class="btn btn-icon">▶ Видео</a>` : ''}
+              <button class="btn btn-icon" onclick="downloadBdiyFile('${docId}', 'requests')">💾 Файл</button>
+              <button class="btn btn-success btn-icon" onclick="approveRequest('${docId}')">✓ Принять в Топ</button>
+              <button class="btn btn-danger btn-icon" onclick="deleteRequest('${docId}')">✕ Отклонить</button>
             </div>
           `;
           container.appendChild(card);
         });
       });
+    }
+
+    async function approveRequest(reqId) {
+      const posStr = prompt('На какую позицию в ТОП поместить уровень?', '1');
+      if (!posStr) return;
+      const pos = parseInt(posStr) || 1;
+
+      try {
+        const doc = await db.collection('requests').doc(reqId).get();
+        if (!doc.exists) return;
+        const reqData = doc.data();
+
+        await db.collection('levels').add({
+          title: reqData.title,
+          author: reqData.author,
+          verifier: reqData.verifier || 'Админ',
+          video: reqData.video || '#',
+          fileData: reqData.fileData,
+          previewData: reqData.previewData || null,
+          fileName: reqData.fileName,
+          position: pos,
+          likes: [],
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        await db.collection('requests').doc(reqId).delete();
+        alert('Уровень перенесен в основной ТОП!');
+      } catch (err) {
+        alert('Ошибка при переносе уровня.');
+      }
+    }
+
+    async function deleteRequest(reqId) {
+      if (!confirm('Удалить эту заявку?')) return;
+      await db.collection('requests').doc(reqId).delete();
+    }
+
+    async function handleAdminAddLevel(e) {
+      e.preventDefault();
+      const file = document.getElementById('admFile').files[0];
+      const previewFile = document.getElementById('admPreviewFile').files[0];
+      if (!file) return;
+
+      const fileData = await fileToDataURL(file);
+      const previewData = previewFile ? await fileToDataURL(previewFile) : null;
+      const pos = parseInt(document.getElementById('admPos').value);
+
+      try {
+        await db.collection('levels').add({
+          title: document.getElementById('admTitle').value,
+          author: document.getElementById('admAuthor').value,
+          verifier: document.getElementById('admVerifier').value,
+          video: document.getElementById('admVideo').value,
+          fileData: fileData,
+          previewData: previewData,
+          fileName: file.name,
+          position: pos,
+          likes: [],
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        alert('Уровень успешно сохранён!');
+        document.getElementById('adminAddForm').reset();
+        closeModal('adminModal');
+      } catch (err) {
+        alert('Не удалось сохранить уровень.');
+      }
     }
 
     async function moveLevel(docId, direction) {
@@ -993,6 +831,11 @@
       await batch.commit();
     }
 
+    async function deleteLevel(docId) {
+      if (!confirm('Удалить уровень из общей базы?')) return;
+      await db.collection('levels').doc(docId).delete();
+    }
+
     async function downloadBdiyFile(docId, collectionName = 'levels') {
       try {
         const doc = await db.collection(collectionName).doc(docId).get();
@@ -1010,186 +853,434 @@
       }
     }
 
-    async function handleUserSubmit(e) {
-      e.preventDefault();
-      
-      const submitBtn = e.target.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.innerText;
+    renderLevels();
+  </script>
+</body>
+</html>
+<body>
 
-      const title = document.getElementById('userTitle').value;
-      const author = document.getElementById('userAuthor').value;
-      const verifier = document.getElementById('userVerifier').value;
-      const video = document.getElementById('userVideo').value;
-      
-      const fileInput = document.getElementById('userFile');
-      const previewInput = document.getElementById('userPreviewFile');
-      
-      const file = fileInput.files[0];
-      const previewFile = previewInput.files[0];
+  <canvas id="particles"></canvas>
 
-      if (file && !file.name.endsWith('.βdiy')) {
-        alert('Пожалуйста, выберите файл с расширением .βdiy');
-        return;
-      }
+  <div class="app-container">
+    <header>
+      <div class="brand-title">PvZ Hard Levels Top</div>
 
-      submitBtn.disabled = true;
-      submitBtn.innerText = 'Сохранение...';
+      <div class="header-right-zone">
+        <div class="header-actions-row">
+          <button class="btn" onclick="openSubmitModal()">Подать заявку</button>
+          <button class="btn btn-primary" onclick="openVerifyModal()">Отправить на верификацию</button>
+          <button class="admin-icon-btn" title="Админ панель" onclick="openAdminModal()">⚙️</button>
+        </div>
 
-      try {
-        const fileData = await fileToDataURL(file);
-        let previewData = null;
+        <div class="user-profile-widget" onclick="handleProfileClick()">
+          <div class="avatar-circle" id="userAvatar">👤</div>
+          <div class="user-nickname" id="userNickname">Войти</div>
+        </div>
+      </div>
+    </header>
 
-        if (previewFile) {
-          previewData = await fileToDataURL(previewFile);
-        }
+    <main class="levels-list" id="levelsContainer"></main>
+  </div>
 
-        await db.collection('requests').add({
-          title,
-          author,
-          verifier,
-          video,
-          fileData,
-          previewData,
-          fileName: file.name,
+  <div class="modal-overlay" id="submitModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Подача заявки уровня</h3>
+        <button class="close-btn" onclick="closeModal('submitModal')">&times;</button>
+      </div>
+      <form id="submissionForm" onsubmit="handleUserSubmit(event)">
+        <div class="form-group">
+          <label>Название уровня</label>
+          <input type="text" class="form-control" id="userTitle" placeholder="Например: Dark Matter Roof" required>
+        </div>
+        <div class="form-group">
+          <label>Ник верификатора</label>
+          <input type="text" class="form-control" id="userVerifier" placeholder="Кто прошёл уровень" required>
+        </div>
+        <div class="form-group">
+          <label>Ссылка на видео (YouTube / Bilibili)</label>
+          <input type="url" class="form-control" id="userVideo" placeholder="https://..." required>
+        </div>
+        <div class="form-group">
+          <label>Превью картинка (по желанию)</label>
+          <input type="file" class="form-control" id="userPreviewFile" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label>Файл уровня (.βdiy)</label>
+          <input type="file" class="form-control" id="userFile" accept=".βdiy" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="verifyModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Отправить уровень на верификацию</h3>
+        <button class="close-btn" onclick="closeModal('verifyModal')">&times;</button>
+      </div>
+      <form id="verifyForm" onsubmit="handleUserVerifySubmit(event)">
+        <div class="form-group">
+          <label>Название уровня</label>
+          <input type="text" class="form-control" id="verifyTitle" placeholder="Введите название уровня" required>
+        </div>
+        <div class="form-group">
+          <label>Файл уровня (.βdiy)</label>
+          <input type="file" class="form-control" id="verifyFile" accept=".βdiy" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="authModalTitle">Аккаунт</h3>
+        <button class="close-btn" onclick="closeModal('authModal')">&times;</button>
+      </div>
+
+      <div id="authFormBlock">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" onclick="switchAuthMode('login')">Вход</button>
+          <button class="auth-tab" id="tabRegister" onclick="switchAuthMode('register')">Регистрация</button>
+        </div>
+
+        <form id="authForm" onsubmit="handleAuthSubmit(event)">
+          <div class="form-group" id="nickGroup" style="display: none;">
+            <label>Никнейм (Уникальный)</label>
+            <input type="text" class="form-control" id="authNick" placeholder="Придумайте ник">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" id="authEmail" placeholder="example@mail.com" required>
+          </div>
+          <div class="form-group">
+            <label>Пароль</label>
+            <input type="password" class="form-control" id="authPass" placeholder="••••••••" required>
+          </div>
+          <div class="form-group" id="passConfirmGroup" style="display: none;">
+            <label>Повторите пароль</label>
+            <input type="password" class="form-control" id="authPassConfirm" placeholder="••••••••">
+          </div>
+
+          <div class="checkbox-group" id="termsGroup" style="display: none;">
+            <input type="checkbox" id="authTerms" required>
+            <label for="authTerms">Я согласен с правилами платформы: не спамить, не публиковать вредоносные файлы. Администрация не несет ответственности за файлы пользователей.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;" id="authSubmitBtn">Войти</button>
+        </form>
+      </div>
+
+      <div id="userInfoBlock" style="display: none; flex-direction: column;">
+        <div style="text-align: center; margin-bottom: 10px;">
+          <h2 id="profileNickDisplay" style="font-size: 1.3rem;">Ваш Ник</h2>
+          <span style="font-size: 0.8rem; color: var(--text-muted);" id="profileEmailDisplay"></span>
+        </div>
+
+        <label style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; text-align: center; display: block;">Выберите аватарку:</label>
+        <div class="avatar-selector">
+          <div class="avatar-option" onclick="selectAvatar('🌻')">🌻</div>
+          <div class="avatar-option" onclick="selectAvatar('🧟')">🧟</div>
+          <div class="avatar-option" onclick="selectAvatar('🧪')">🧪</div>
+          <div class="avatar-option" onclick="selectAvatar('🌶️')">🌶️</div>
+          <div class="avatar-option" onclick="selectAvatar('👑')">👑</div>
+        </div>
+
+        <div class="profile-stats">
+          <div style="font-size: 1.4rem; font-weight: bold;" id="userLevelsCount">0</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">Опубликовано уровней</div>
+        </div>
+
+        <button class="btn btn-danger" style="width: 100%;" onclick="logoutUser()">Выйти из аккаунта</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="adminModalTitle">Панель управления</h3>
+        <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
+      </div>
+
+      <div id="adminContentBlock">
+        <div class="admin-section-title">📥 Входящие заявки на верификацию / публикации</div>
+        <div id="requestsContainer">Загрузка заявок...</div>
+
+        <div class="admin-section-title">➕ Добавить уровень вручную</div>
+        <form id="adminAddForm" onsubmit="handleAdminAddLevel(event)">
+          <div class="form-group">
+            <label>Позиция в топе (#)</label>
+            <input type="number" class="form-control" id="admPos" min="1" value="1" required>
+          </div>
+          <div class="form-group">
+            <label>Название уровня</label>
+            <input type="text" class="form-control" id="admTitle" required>
+          </div>
+          <div class="form-group">
+            <label>Автор</label>
+            <input type="text" class="form-control" id="admAuthor" placeholder="Укажите ник автора" required>
+          </div>
+          <div class="form-group">
+            <label>Верификатор</label>
+            <input type="text" class="form-control" id="admVerifier" required>
+          </div>
+          <div class="form-group">
+            <label>Ссылка на видео</label>
+            <input type="url" class="form-control" id="admVideo" required>
+          </div>
+          <div class="form-group">
+            <label>Превью картинка (необязательно)</label>
+            <input type="file" class="form-control" id="admPreviewFile" accept="image/*">
+          </div>
+          <div class="form-group">
+            <label>Файл уровня (.βdiy)</label>
+            <input type="file" class="form-control" id="admFile" accept=".βdiy" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Опубликовать в топ</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  position: pos,
+          likes: [],
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        alert('Заявка успешно отправлена на рассмотрение!');
-        document.getElementById('submissionForm').reset();
-        closeModal('submitModal');
-      } catch (error) {
-        console.error('Submit Error:', error);
-        alert('Ошибка отправки заявки. Попробуйте снова.');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerText = originalBtnText;
-      }
-    }
-
-    function renderRequests() {
-      const container = document.getElementById('requestsContainer');
-
-      db.collection('requests').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
-        container.innerHTML = '';
-
-        if (snapshot.empty) {
-          container.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem;">Новых заявок пока нет.</div>`;
-          return;
-        }
-
-        snapshot.docs.forEach((doc) => {
-          const req = doc.data();
-          const docId = doc.id;
-
-          const card = document.createElement('div');
-          card.className = 'request-card';
-          card.innerHTML = `
-            <div style="font-weight: 600; color: #fff;">${escapeHtml(req.title)}</div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">
-              Автор: <b>${escapeHtml(req.author)}</b> | Верификатор: <b>${escapeHtml(req.verifier)}</b>
-            </div>
-            <div style="display: flex; gap: 8px; margin-top: 6px;">
-              <a href="${escapeHtml(req.video)}" target="_blank" class="btn btn-icon">▶ Видео</a>
-              <button class="btn btn-icon" onclick="downloadBdiyFile('${docId}', 'requests')">💾 Файл</button>
-              <button class="btn btn-success btn-icon" onclick="approveRequest('${docId}')">✓ Принять в Топ</button>
-              <button class="btn btn-danger btn-icon" onclick="deleteRequest('${docId}')">✕ Отклонить</button>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-      });
-    }
-
-    async function approveRequest(reqId) {
-      const posStr = prompt('На какую позицию в ТОП поместить уровень?', '1');
-      if (!posStr) return;
-
-      const pos = parseInt(posStr) || 1;
-
-      try {
-        const doc = await db.collection('requests').doc(reqId).get();
-        if (!doc.exists) return;
-
-        const reqData = doc.data();
-
-        await db.collection('levels').add({
-          title: reqData.title,
-          author: reqData.author,
-          verifier: reqData.verifier,
-          video: reqData.video,
-          fileData: reqData.fileData,
-          previewData: reqData.previewData || null,
-          fileName: reqData.fileName,
-          position: pos,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        await db.collection('requests').doc(reqId).delete();
-
-        alert('Уровень перенесен в основной ТОП!');
-      } catch (err) {
-        console.error(err);
-        alert('Ошибка при переносе уровня.');
-      }
-    }
-
-    async function deleteRequest(reqId) {
-      if (!confirm('Удалить эту заявку?')) return;
-      try {
-        await db.collection('requests').doc(reqId).delete();
-      } catch (err) {
-        alert('Ошибка при удалении заявки.');
-      }
-    }
-
-    async function handleAdminAddLevel(e) {
-      e.preventDefault();
-      const fileInput = document.getElementById('admFile');
-      const previewInput = document.getElementById('admPreviewFile');
-      const file = fileInput.files[0];
-      const previewFile = previewInput.files[0];
-      if (!file) return;
-
-      const fileData = await fileToDataURL(file);
-      let previewData = null;
-      if (previewFile) {
-        previewData = await fileToDataURL(previewFile);
-      }
-
-      const pos = parseInt(document.getElementById('admPos').value);
-
-      try {
-        await db.collection('levels').add({
-          title: document.getElementById('admTitle').value,
-          author: document.getElementById('admAuthor').value,
-          verifier: document.getElementById('admVerifier').value,
-          video: document.getElementById('admVideo').value,
-          fileData: fileData,
-          previewData: previewData,
-          fileName: file.name,
-          position: pos,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        alert('Уровень успешно сохранён в общую базу данных!');
+        alert('Уровень успешно сохранён!');
         document.getElementById('adminAddForm').reset();
         closeModal('adminModal');
       } catch (err) {
-        console.error('Ошибка добавления:', err);
-        alert('Не удалось сохранить уровень в Firebase.');
+        alert('Не удалось сохранить уровень.');
       }
+    }
+
+    async function moveLevel(docId, direction) {
+      const currentIndex = loadedLevelsDocs.findIndex(d => d.id === docId);
+      if (currentIndex === -1) return;
+
+      const targetIndex = currentIndex + direction;
+      if (targetIndex < 0 || targetIndex >= loadedLevelsDocs.length) return;
+
+      const currentDoc = loadedLevelsDocs[currentIndex];
+      const targetDoc = loadedLevelsDocs[targetIndex];
+
+      const currentPos = currentDoc.data().position || (currentIndex + 1);
+      const targetPos = targetDoc.data().position || (targetIndex + 1);
+
+      const batch = db.batch();
+      batch.update(db.collection('levels').doc(currentDoc.id), { position: targetPos });
+      batch.update(db.collection('levels').doc(targetDoc.id), { position: currentPos });
+
+      await batch.commit();
     }
 
     async function deleteLevel(docId) {
       if (!confirm('Удалить уровень из общей базы?')) return;
+      await db.collection('levels').doc(docId).delete();
+    }
+
+    async function downloadBdiyFile(docId, collectionName = 'levels') {
       try {
-        await db.collection('levels').doc(docId).delete();
-      } catch (err) {
-        alert('Ошибка при удалении уровня.');
+        const doc = await db.collection(collectionName).doc(docId).get();
+        if (!doc.exists) return;
+        const level = doc.data();
+
+        const a = document.createElement('a');
+        a.href = level.fileData;
+        a.download = level.fileName || `${level.title.replace(/\s+/g, '_')}.βdiy`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } catch (error) {
+        alert('Ошибка при скачивании файла.');
       }
     }
 
     renderLevels();
   </script>
+
+  <canvas id="particles"></canvas>
+
+  <div class="app-container">
+    <header>
+      <div class="brand-title">PvZ Custom Levels</div>
+      <div class="header-right-zone">
+        <div class="header-actions-row">
+          <button class="btn btn-primary" onclick="openSubmitModal()">+ Подать уровень</button>
+          <button class="btn" onclick="openVerifyModal()">🔍 Верификация</button>
+          <button class="admin-icon-btn" onclick="openAdminModal()" title="Админ-панель">⚙️</button>
+        </div>
+        <div class="user-profile-widget" onclick="handleProfileClick()">
+          <div class="avatar-circle" id="userAvatar">👤</div>
+          <span class="user-nickname" id="userNickname">Войти</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="levels-list" id="levelsContainer">
+        </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Личный кабинет</h3>
+        <button class="close-btn" onclick="closeModal('authModal')">✕</button>
+      </div>
+
+      <div id="userInfoBlock" style="display: none; flex-direction: column;">
+        <div class="profile-stats">
+          <div style="font-size: 1.1rem; font-weight: 600;" id="profileNickDisplay">Игрок</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);" id="profileEmailDisplay">email@example.com</div>
+          <div style="margin-top: 8px; font-size: 0.85rem;">
+            Опубликовано уровней: <b id="userLevelsCount">0</b>
+          </div>
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Выберите аватар:</div>
+        <div class="avatar-selector">
+          <div class="avatar-option" onclick="selectAvatar('🌻')">🌻</div>
+          <div class="avatar-option" onclick="selectAvatar('🌽')">🌽</div>
+          <div class="avatar-option" onclick="selectAvatar('🌶️')">🌶️</div>
+          <div class="avatar-option" onclick="selectAvatar('🧟')">🧟</div>
+        </div>
+
+        <button class="btn btn-danger" style="margin-top: 15px; width: 100%;" onclick="logoutUser()">Выйти из аккаунта</button>
+      </div>
+
+      <div id="authFormBlock">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" onclick="switchAuthMode('login')">Вход</button>
+          <button class="auth-tab" id="tabRegister" onclick="switchAuthMode('register')">Регистрация</button>
+        </div>
+        <form onsubmit="handleAuthSubmit(event)">
+          <div class="form-group" id="nickGroup" style="display: none;">
+            <label>Никнейм</label>
+            <input type="text" class="form-control" id="authNick" placeholder="Уникальный ник">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" id="authEmail" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Пароль</label>
+            <input type="password" class="form-control" id="authPass" required placeholder="••••••••">
+          </div>
+          <div class="form-group" id="passConfirmGroup" style="display: none;">
+            <label>Подтвердите пароль</label>
+            <input type="password" class="form-control" id="authPassConfirm" placeholder="••••••••">
+          </div>
+          <div class="checkbox-group" id="termsGroup" style="display: none;">
+            <input type="checkbox" id="authTerms">
+            <label for="authTerms">Я принимаю условия использования и правила сообщества</label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;" id="authSubmitBtn">Войти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="submitModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Подать уровень в ТОП</h3>
+        <button class="close-btn" onclick="closeModal('submitModal')">✕</button>
+      </div>
+      <form id="submissionForm" onsubmit="handleUserSubmit(event)">
+        <div class="form-group">
+          <label>Название уровня</label>
+          <input type="text" class="form-control" id="userTitle" required placeholder="Например: Hard Night 1-1">
+        </div>
+        <div class="form-group">
+          <label>Верификатор</label>
+          <input type="text" class="form-control" id="userVerifier" required placeholder="Кто прошел уровень">
+        </div>
+        <div class="form-group">
+          <label>Ссылка на видео прохождения</label>
+          <input type="url" class="form-control" id="userVideo" required placeholder="https://youtube.com/...">
+        </div>
+        <div class="form-group">
+          <label>Файл уровня (.βdiy)</label>
+          <input type="file" class="form-control" id="userFile" accept=".βdiy" required>
+        </div>
+        <div class="form-group">
+          <label>Превью (изображение, необязательно)</label>
+          <input type="file" class="form-control" id="userPreviewFile" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить на модерацию</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="verifyModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Отправить на верификацию</h3>
+        <button class="close-btn" onclick="closeModal('verifyModal')">✕</button>
+      </div>
+      <form id="verifyForm" onsubmit="handleUserVerifySubmit(event)">
+        <div class="form-group">
+          <label>Название уровня</label>
+          <input type="text" class="form-control" id="verifyTitle" required placeholder="Название для видео">
+        </div>
+        <div class="form-group">
+          <label>Файл уровня (.βdiy)</label>
+          <input type="file" class="form-control" id="verifyFile" accept=".βdiy" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить на верификацию</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Панель администратора</h3>
+        <button class="close-btn" onclick="closeModal('adminModal')">✕</button>
+      </div>
+      
+      <div class="admin-section-title">Входящие заявки</div>
+      <div id="requestsContainer">Загрузка заявок...</div>
+
+      <div class="admin-section-title">Прямое добавление в ТОП</div>
+      <form id="adminAddForm" onsubmit="handleAdminAddLevel(event)">
+        <div class="form-group">
+          <label>Название</label>
+          <input type="text" class="form-control" id="admTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Автор</label>
+          <input type="text" class="form-control" id="admAuthor" required>
+        </div>
+        <div class="form-group">
+          <label>Верификатор</label>
+          <input type="text" class="form-control" id="admVerifier" required>
+        </div>
+        <div class="form-group">
+          <label>Ссылка на видео</label>
+          <input type="url" class="form-control" id="admVideo" required>
+        </div>
+        <div class="form-group">
+          <label>Позиция в рейтинге</label>
+          <input type="number" class="form-control" id="admPos" value="1" min="1" required>
+        </div>
+        <div class="form-group">
+          <label>Файл (.βdiy)</label>
+          <input type="file" class="form-control" id="admFile" accept=".βdiy" required>
+        </div>
+        <div class="form-group">
+          <label>Превью (картинка)</label>
+          <input type="file" class="form-control" id="admPreviewFile" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Добавить напрямую</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
