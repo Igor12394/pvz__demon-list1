@@ -736,25 +736,30 @@
                   </div>
                 </div>
                 <div class="level-actions">
-                  <button class="btn btn-like ${isLiked ? 'liked' : ''}" onclick="toggleLike('${docId}')">
-                    ❤️ ${likesCount}
-                  </button>
                   <a href="${escapeHtml(level.video)}" target="_blank" class="btn btn-success">▶ Видео</a>
                   <button class="btn btn-primary" onclick="downloadBdiyFile('${docId}')">📥 Скачать</button>
-                  <button class="btn" onclick="toggleComments('${docId}')">💬</button>
                 </div>
               </div>
 
+              <div class="level-footer-social">
+                <button class="btn-ghost-icon ${isLiked ? 'liked' : ''}" onclick="toggleLike('${docId}')" title="Нравится">
+                  ❤️ <span>${likesCount}</span>
+                </button>
+                <button class="btn-ghost-icon" onclick="toggleComments('${docId}')" title="Комментарии">
+                  💬
+                </button>
+              </div>
+
               <div class="comments-section" id="comments-${docId}">
-                <div class="comments-list" id="comments-list-${docId}">
-                  Загрузка комментариев...
-                </div>
+                <div class="comments-list" id="comments-list-${docId}">Загрузка комментариев...</div>
                 <form class="comment-form" onsubmit="addComment(event, '${docId}')">
                   <input type="text" class="form-control" id="input-comment-${docId}" placeholder="Оставьте комментарий..." required>
                   <button type="submit" class="btn btn-primary">Отправить</button>
                 </form>
               </div>
             </div>
+          `;
+        
           `;
 
           container.insertAdjacentHTML('beforeend', cardHTML);
