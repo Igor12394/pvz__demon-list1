@@ -51,36 +51,91 @@
     .app-container {
       width: 100%;
       max-width: 860px;
-      padding: 50px 20px;
+      padding: 40px 20px;
       z-index: 1;
     }
 
+    /* ==========================================
+       ОБНОВЛЕННАЯ ШАПКА
+       ========================================== */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 40px;
-      padding-bottom: 20px;
+      padding: 16px 20px;
       border-bottom: 1px solid var(--card-border);
-      background: rgba(8, 8, 10, 0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 0 0 12px 12px;
+      background: rgba(8, 8, 10, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
     }
 
-    .brand-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      background: linear-gradient(180deg, #ffffff 0%, #a1a1a1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .header-actions {
+    .header-right-zone {
       display: flex;
-      gap: 12px;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Кнопки в столбик */
+    .header-buttons-column {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .header-buttons-column .btn {
+      padding: 6px 14px;
+      font-size: 0.78rem;
+    }
+
+    /* Блок профиля (аватар + ник) */
+    .user-profile-widget {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 8px;
+      border-radius: 20px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .user-profile-widget:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--card-border);
+    }
+
+    .avatar-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #1e1e24;
+      border: 1px solid var(--card-border-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .user-nickname {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+      max-width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .btn {
@@ -98,7 +153,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       will-change: transform;
     }
 
@@ -163,10 +218,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
       transition: border-color 0.25s, background-color 0.25s, transform 0.25s;
       animation: fadeIn 0.3s ease forwards;
-      will-change: transform, opacity;
     }
 
     @keyframes fadeIn {
@@ -183,7 +237,7 @@
     .level-rank {
       font-size: 1.6rem;
       font-weight: 800;
-      min-width: 55px;
+      min-width: 50px;
       color: var(--text-muted);
       font-variant-numeric: tabular-nums;
     }
@@ -224,6 +278,20 @@
       align-items: center;
     }
 
+    /* Кнопки перемещения позиций для админа */
+    .reorder-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-right: 8px;
+    }
+
+    .btn-arrow {
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      line-height: 1;
+    }
+
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -239,7 +307,6 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s ease;
-      will-change: opacity;
     }
 
     .modal-overlay.active {
@@ -252,14 +319,13 @@
       border: 1px solid var(--card-border-hover);
       border-radius: 16px;
       width: 100%;
-      max-width: 580px;
+      max-width: 500px;
       padding: 32px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
       transform: scale(0.96);
       transition: transform 0.25s ease;
       max-height: 90vh;
       overflow-y: auto;
-      will-change: transform;
     }
 
     .modal-overlay.active .modal-card {
@@ -348,6 +414,29 @@
       gap: 8px;
     }
 
+    .auth-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 10px;
+    }
+
+    .auth-tab {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+      padding-bottom: 4px;
+    }
+
+    .auth-tab.active {
+      color: var(--text-main);
+      border-bottom: 2px solid var(--text-main);
+    }
+
     @media (max-width: 640px) {
       .level-card {
         flex-direction: column;
@@ -368,6 +457,7 @@
 
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
   <script>
     const firebaseConfig = {
@@ -382,6 +472,7 @@
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+    const auth = firebase.auth();
   </script>
 </head>
 <body>
@@ -390,10 +481,19 @@
 
   <div class="app-container">
     <header>
-      <div class="brand-title">PvZ Hard Levels Top</div>
-      <div class="header-actions">
-        <button class="btn" onclick="openModal('submitModal')">Подать заявку</button>
-        <button class="btn" onclick="openAdminModal()">Админ Панель</button>
+      <div style="width: 20px;"></div>
+
+      <div class="header-right-zone">
+        <div class="header-buttons-column">
+          <button class="btn" onclick="openModal('submitModal')">Подать заявку</button>
+          <button class="btn" onclick="openAdminModal()">Пароль админа</button>
+        </div>
+
+        <div class="user-profile-widget" onclick="handleProfileClick()">
+          <div class="avatar-circle" id="userAvatar">
+            </div>
+          <div class="user-nickname" id="userNickname">Войти</div>
+        </div>
       </div>
     </header>
 
@@ -429,6 +529,41 @@
         </div>
         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Отправить заявку</button>
       </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="authModalTitle">Авторизация</h3>
+        <button class="close-btn" onclick="closeModal('authModal')">&times;</button>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="switchAuthMode('login')">Вход</button>
+        <button class="auth-tab" id="tabRegister" onclick="switchAuthMode('register')">Регистрация</button>
+      </div>
+
+      <form id="authForm" onsubmit="handleAuthSubmit(event)">
+        <div class="form-group" id="nickGroup" style="display: none;">
+          <label>Имя / Никнейм</label>
+          <input type="text" class="form-control" id="authNick" placeholder="Ваш ник">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" id="authEmail" placeholder="example@mail.com" required>
+        </div>
+        <div class="form-group">
+          <label>Пароль</label>
+          <input type="password" class="form-control" id="authPass" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;" id="authSubmitBtn">Войти</button>
+      </form>
+
+      <div id="userInfoBlock" style="display: none; text-align: center; gap: 15px; flex-direction: column;">
+        <p style="color: var(--text-muted);" id="userEmailDisplay"></p>
+        <button class="btn btn-danger" style="width: 100%;" onclick="logoutUser()">Выйти из аккаунта</button>
+      </div>
     </div>
   </div>
 
@@ -484,6 +619,9 @@
   </div>
 
   <script>
+    /* ==========================================
+       1. CANVAS
+       ========================================== */
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d', { alpha: false });
     let particlesArray = [];
@@ -542,8 +680,13 @@
     resizeCanvas();
     requestAnimationFrame(animateParticles);
 
+    /* ==========================================
+       2. СОСТОЯНИЕ И ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+       ========================================== */
     const ADMIN_PASS = "envelope";
     let isAdmin = false;
+    let authMode = 'login';
+    let loadedLevelsDocs = [];
 
     function escapeHtml(str) {
       return (str || '').replace(/[&<>"']/g, match => {
@@ -564,11 +707,69 @@
     function openModal(id) { document.getElementById(id).classList.add('active'); }
     function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
+    /* ==========================================
+       3. АВТОРИЗАЦИЯ И ПРОФИЛЬ
+       ========================================== */
+    auth.onAuthStateChanged(user => {
+      const nickElem = document.getElementById('userNickname');
+      if (user) {
+        nickElem.innerText = user.displayName || user.email.split('@')[0];
+        document.getElementById('authForm').style.display = 'none';
+        document.getElementById('userInfoBlock').style.display = 'flex';
+        document.getElementById('userEmailDisplay').innerText = `Вы вошли как: ${user.email}`;
+      } else {
+        nickElem.innerText = 'Войти';
+        document.getElementById('authForm').style.display = 'block';
+        document.getElementById('userInfoBlock').style.display = 'none';
+      }
+    });
+
+    function handleProfileClick() {
+      openModal('authModal');
+    }
+
+    function switchAuthMode(mode) {
+      authMode = mode;
+      document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
+      document.getElementById('tabRegister').classList.toggle('active', mode === 'register');
+      document.getElementById('nickGroup').style.display = mode === 'register' ? 'block' : 'none';
+      document.getElementById('authSubmitBtn').innerText = mode === 'register' ? 'Зарегистрироваться' : 'Войти';
+    }
+
+    async function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('authEmail').value;
+      const pass = document.getElementById('authPass').value;
+      const nick = document.getElementById('authNick').value;
+
+      try {
+        if (authMode === 'register') {
+          const res = await auth.createUserWithEmailAndPassword(email, pass);
+          if (nick) await res.user.updateProfile({ displayName: nick });
+          alert('Регистрация прошла успешно!');
+        } else {
+          await auth.signInWithEmailAndPassword(email, pass);
+        }
+        closeModal('authModal');
+      } catch (err) {
+        alert('Ошибка авторизации: ' + err.message);
+      }
+    }
+
+    function logoutUser() {
+      auth.signOut();
+      closeModal('authModal');
+    }
+
+    /* ==========================================
+       4. ОТОБРАЖЕНИЕ И СОРТИРОВКА УРОВНЕЙ
+       ========================================== */
     function renderLevels() {
       const container = document.getElementById('levelsContainer');
 
       db.collection('levels').orderBy('position', 'asc').onSnapshot((snapshot) => {
         container.innerHTML = '';
+        loadedLevelsDocs = snapshot.docs;
 
         if (snapshot.empty) {
           container.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 40px;">Рейтинг пока пуст.</div>`;
@@ -582,7 +783,15 @@
           card.className = 'level-card';
 
           card.innerHTML = `
-            <div class="level-rank ${index === 0 ? 'top-1' : ''}">#${index + 1}</div>
+            <div style="display: flex; align-items: center;">
+              ${isAdmin ? `
+                <div class="reorder-btns">
+                  <button class="btn btn-arrow" onclick="moveLevel('${docId}', -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
+                  <button class="btn btn-arrow" onclick="moveLevel('${docId}', 1)" ${index === snapshot.docs.length - 1 ? 'disabled' : ''}>▼</button>
+                </div>
+              ` : ''}
+              <div class="level-rank ${index === 0 ? 'top-1' : ''}">#${index + 1}</div>
+            </div>
             <div class="level-details">
               <div class="level-title">${escapeHtml(lvl.title)}</div>
               <div class="level-meta">
@@ -600,9 +809,28 @@
           `;
           container.appendChild(card);
         });
-      }, (error) => {
-        console.error("Ошибка загрузки данных из базы Firebase:", error);
       });
+    }
+
+    /* Функция лёгкой смены позиций для админа */
+    async function moveLevel(docId, direction) {
+      const currentIndex = loadedLevelsDocs.findIndex(d => d.id === docId);
+      if (currentIndex === -1) return;
+
+      const targetIndex = currentIndex + direction;
+      if (targetIndex < 0 || targetIndex >= loadedLevelsDocs.length) return;
+
+      const currentDoc = loadedLevelsDocs[currentIndex];
+      const targetDoc = loadedLevelsDocs[targetIndex];
+
+      const currentPos = currentDoc.data().position || (currentIndex + 1);
+      const targetPos = targetDoc.data().position || (targetIndex + 1);
+
+      const batch = db.batch();
+      batch.update(db.collection('levels').doc(currentDoc.id), { position: targetPos });
+      batch.update(db.collection('levels').doc(targetDoc.id), { position: currentPos });
+
+      await batch.commit();
     }
 
     async function downloadBdiyFile(docId, collectionName = 'levels') {
