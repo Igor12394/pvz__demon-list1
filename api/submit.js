@@ -1,33 +1,47 @@
-// api/submit.js
 export const config = {
   api: {
-    bodyParser: false, // Отключаем стандартный парсер, чтобы передать файл "как есть"
+    bodyParser: false, // Отключаем стандартный парсер Vercel для работы с multipart/form-data
   },
 };
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  // Данные берутся из переменных окружения сервера
-  const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-  const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-
   try {
-    // Перенаправляем запрос с файлом напрямую в Telegram
-    const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, {
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (!token || !chatId) {
+      return res.status(500).json({ error: 'Переменные окружения Telegram не найдены в Vercel' });
+    }
+
+    // Буферизируем поток тела запроса для надежной передачи файла в Telegram API
+    const chunks = [];
+    for await (const chunk of req) {
+      chunks.push(chunk);
+    }
+    const buffer = Buffer.concat(chunks);
+
+    // Отправляем сырые данные напрямую в Telegram
+    const tgResponse = await fetch(`https://api.telegram.org/bot${token}/sendDocument?chat_id=${chatId}`, {
       method: 'POST',
       headers: {
-        // Передаем заголовки с типом данных (FormData)
         'content-type': req.headers['content-type'],
+        'content-length': buffer.length.toString(),
       },
-      body: req, // Передаем входящий поток данных
+      body: buffer,
     });
 
-    const data = await response.json();
-    return res.status(200).json(data);
+    const data = await tgResponse.json();
+
+    if (!tgResponse.ok) {
+      return res.status(tgResponse.status).json({ error: data.description || 'Ошибка Telegram API' });
+    }
+
+    return res.status(200).json({ success: true, data });
   } catch (error) {
-    return res.status(500).json({ error: 'Server error', details: error.message });
+    return res.status(500).json({ error: error.message });
   }
 }
